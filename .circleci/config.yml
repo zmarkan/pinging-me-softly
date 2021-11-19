@@ -1,0 +1,21 @@
+version: 2.1
+
+parameters:
+   - echo-value:
+      type: string
+      default: "hello world"
+
+jobs:
+  say-my-name:
+    docker: 
+      - image: cimg/base:2021.11
+    steps:
+      - checkout
+      - run:
+          name: Run command
+          command: echo << parameters.echo-value >>
+
+workflows:
+  run-workflow:
+    jobs:
+      - say-my-name
