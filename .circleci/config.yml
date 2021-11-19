@@ -1,9 +1,9 @@
 version: 2.1
 
 parameters:
-   - echo-value:
-      type: string
-      default: "hello world"
+  echo-value:
+    type: string
+    default: "hello world"
 
 jobs:
   say-my-name:
