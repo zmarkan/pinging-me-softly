@@ -1,21 +1,21 @@
 version: 2.1
 
 parameters:
-  echo-value:
+  image-name:
     type: string
-    default: "hello world"
+    default: "Not a real image name"
 
 jobs:
-  say-my-name:
+  print-image-name:
     docker: 
       - image: cimg/base:2021.11
     steps:
       - checkout
       - run:
-          name: Echo whatever
-          command: echo << pipeline.parameters.echo-value >>
+          name: Echo Image name
+          command: echo << pipeline.parameters.image-name >>
 
 workflows:
   run-workflow:
     jobs:
-      - say-my-name
+      - print-image-name
